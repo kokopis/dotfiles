@@ -1,9 +1,18 @@
 # vi:ft=bash:
-if test `uname` = "Darwin"; then
-  ln -sf osx/zshenv $HOME/.zshenv
-  ln -sf osx/zshrc $HOME/.zshrc
+if [ ! -e "$HOME/Developer" ]; then
+  mkdir -p $HOME/Developer
+  touch $HOME/Developer/.localized
+fi
 
-  ln -sf osx/Brewfile $HOME/.Brewfile
+SCRIPT_ROOT="$HOME/Developer/github.com/kokopis/dotfiles"
+mkdir -p $SCRIPT_ROOT
+cp * $SCRIPT_ROOT
+
+if test `uname` = "Darwin"; then
+  ln -sf $SCRIPT_ROOT/osx/zshenv $HOME/.zshenv
+  ln -sf $SCRIPT_ROOT/osx/zshrc $HOME/.zshrc
+
+  ln -sf $SCRIPT_ROOT/osx/Brewfile $HOME/.Brewfile
   if where brew &>/dev/null; then
     brew bundle --global
   else
@@ -17,17 +26,17 @@ if test `uname` = "Darwin"; then
 fi
 
 if test `uname` = "Linux"; then
-  ln -sf linux/zshenv $HOME/.zshenv
-  ln -sf linux/zshrc $HOME/.zshrc
+  ln -sf $SCRIPT_ROOT/linux/zshenv $HOME/.zshenv
+  ln -sf $SCRIPT_ROOT/linux/zshrc $HOME/.zshrc
 
   if [ ! -e "$HOME/.config/fontconfig" ]; then
     mkdir -p $HOME/.config/fontconfig
   fi
-  ln -sf linux/000-fontstweak-ezfc.conf $HOME/.config/fontconfig/
+  ln -sf $SCRIPT_ROOT/linux/000-fontstweak-ezfc.conf $HOME/.config/fontconfig/
 fi
 
-ln -sf share/gitconfig $HOME/.gitconfig
-ln -sf share/init.vim $HOME/.config/nvim/
-ln -sf share/antigen.conf.zsh $HOME/.antigen.conf.zsh
+ln -sf $SCRIPT_ROOT/share/gitconfig $HOME/.gitconfig
+ln -sf $SCRIPT_ROOT/share/init.vim $HOME/.config/nvim/
+ln -sf $SCRIPT_ROOT/share/antigen.conf.zsh $HOME/.antigen.conf.zsh
 
 exit
