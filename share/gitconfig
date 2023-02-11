@@ -1,14 +1,23 @@
 [user]
 	name = Kokoro Ibaragi
-	email = x3@kokop.is
-	signingKey = E7270673
 [commit]
 	gpgSign = 1
 [init]
 	defaultBranch = main
 [ghq]
-	root = /Users/koko/Developer
+	root = ~/Developer
 [core]
 	excludesfile = ~/.gitignore_global
 [pull]
 	rebase = true
+[alias]
+	co = checkout
+	br = branch
+	cm = commit -S -m
+	st = status
+	lc = log -1 HEAD
+	r = reset --hard
+	us = reset HEAD --
+	f = fetch --all
+	pl = pull --rebase
+	pu = push

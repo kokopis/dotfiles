@@ -1,0 +1,100 @@
+#! vi:ft=zsh
+# load plugins
+if where antigen &>/dev/null; then
+  source $HOME/.antigen.conf.zsh
+fi
+
+# completion for brew packages
+if type brew &>/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
+  FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
+fi
+brew completions link &>/dev/null
+
+# completion
+autoload -Uz compinit
+compinit -i
+
+HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
+if [ -f "$HB_CNF_HANDLER" ]; then
+  source "$HB_CNF_HANDLER";
+fi
+
+# Prompt
+autoload -Uz promptinit
+promptinit
+zstyle ':completion:*' menu select
+setopt COMPLETE_ALIASES
+
+prompt walters
+
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+[[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
+[[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
+
+# aliases
+gcd() {
+  if (type ghq&>/dev/null) && (type peco&>/dev/null); then
+    if [ $# -eq 0 ]; then
+      cd $(ghq root)/$(ghq list | peco)
+    else
+      cd $(ghq root)/$(ghq list | peco --query $@)  
+    fi
+  fi
+}
+
+
+xcode() {
+  XCODE_PATH="/Applications/Xcode.app"
+  if [[ $(uname) == "Darwin" ]]; then
+    if [ $# -eq 0 ]; then
+      open $XCODE_PATH
+    else
+      open $1 -a $XCODE_PATH
+    fi
+  fi
+}
+
+if where rbenv &>/dev/null; then
+  # Load rbenv automatically by appending
+  # the following to ~/.zshrc:
+
+  eval "$(rbenv init - zsh)"
+  export PATH="$(brew --prefix)/bin:$PATH"
+fi
+
+if where pyenv &>/dev/null; then
+  # Initialize pyenv
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/shims:$PATH"
+  eval "$(pyenv init -)"
+fi
+
+if where goenv &>/dev/null; then
+  # Load goenv automatically by appending
+  # the following to ~/.zshrc:
+
+  eval "$(goenv init -)"
+  export PATH=$GOROOT/bin:$PATH
+  export PATH=$PATH:$GOPATH/bin
+fi
+
+if where nodenv &>/dev/null; then
+  # Load nodenv automatically by appending
+  # the following to ~/.zshrc:
+
+  eval "$(nodenv init -)"
+fi
+
+if where direnv &>/dev/null; then
+  # Load direnv
+  eval "$(direnv hook zsh)"
+fi
+
+# Greetings!
+if where neofetch &>/dev/null; then
+  neofetch
+fi
