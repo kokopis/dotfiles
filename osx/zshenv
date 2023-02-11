@@ -1,0 +1,51 @@
+# vi:ft=zsh:
+# opt out of telemetries
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export HOMEBREW_NO_ANALYTICS=1
+
+# PATHs
+# Homebrew
+export HOMEBREW_PRY=1
+if [ -e "$HOME/.local/homebrew/bin/brew" ]; then
+  eval $($HOME/.local/homebrew/bin/brew shellenv)
+fi
+
+# Go
+if where goenv &>/dev/null; then
+  export GOENV_ROOT="$HOME/.goenv"
+  export PATH=$GOENV_ROOT/bin:$PATH
+fi
+
+# Java
+if where jenv &>/dev/null; then
+  export PATH="$HOME/.jenv/bin:$PATH"
+  eval "$(jenv init -)"
+fi
+
+# Android
+if [ -e "$(brew --prefix)" ]; then
+  export PATH="$PATH:$(brew --prefix)/share/android-commandlinetools/platform-tools"
+fi
+
+# other garbages
+export PATH=$HOME/.local/bin:$PATH
+if [ -e "$HOME/.local/opt/esp/xtensa-esp32-elf/bin" ]; then
+  export PATH="$HOME/.local/opt/esp/xtensa-esp32-elf/bin:$PATH"
+fi
+
+# Preferences
+# (just because we can) enable YJIT for when running Ruby 3.2.x or later
+export RUBY_YJIT_ENABLE=1
+
+# use nvim
+if where nvim &>/dev/null; then
+  export EDITOR="$(which nvim)"
+  alias vim="$(which nvim)"
+else
+  export EDITOR="$(which vim)"
+fi
+
+# English please.
+export LANG=en_US.UTF-8
+export LC_CTYPE=UTF-8
+export LC_ALL=en_US.UTF-8

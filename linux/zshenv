@@ -1,0 +1,35 @@
+# vi:ft=zsh:
+# opt out of telemetries
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export HOMEBREW_NO_ANALYTICS=1
+
+# PATHs
+# Go
+if where goenv &>/dev/null; then
+  export GOENV_ROOT="$HOME/.goenv"
+  export PATH=$GOENV_ROOT/bin:$PATH
+fi
+
+# Java
+if where jenv &>/dev/null; then
+  export PATH="$HOME/.jenv/bin:$PATH"
+  eval "$(jenv init -)"
+fi
+
+# other garbages
+export PATH=$HOME/.local/bin:$PATH
+
+# Preferences
+# (just because we can) enable YJIT for when running Ruby 3.2.x or later
+export RUBY_YJIT_ENABLE=1
+
+# use nvim
+if where nvim &>/dev/null; then
+  export EDITOR="$(which nvim)"
+  alias vim="$(which nvim)"
+else
+  export EDITOR="$(which vim)"
+fi
+
+# English please.
+export LANG=en_US.UTF-8
