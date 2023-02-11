@@ -9,7 +9,7 @@ if test `uname` = "Darwin"; then
   else
     mkdir -p $HOME/.local/homebrew
     git clone https://github.com/Homebrew/brew $HOME/.local/homebrew
-    eval `$HOME/.local/homebrew shellenv`
+    eval `$HOME/.local/homebrew/bin/brew shellenv`
     brew update --force --quiet
     chmod -R go-w "$(brew --prefix)/share/zsh"
     brew bundle --global
