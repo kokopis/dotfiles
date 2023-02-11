@@ -1,0 +1,14 @@
+[user]
+	name = Kokoro Ibaragi
+	email = x3@kokop.is
+	signingKey = E7270673
+[commit]
+	gpgSign = 1
+[init]
+	defaultBranch = main
+[ghq]
+	root = /Users/koko/Developer
+[core]
+	excludesfile = ~/.gitignore_global
+[pull]
+	rebase = true
