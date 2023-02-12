@@ -1,8 +1,6 @@
 #! vi:ft=zsh
 # load plugins
-if where antigen &>/dev/null; then
-  source $HOME/.antigen.conf.zsh
-fi
+source $HOME/.antigen.conf.zsh
 
 # completion
 autoload -Uz compinit

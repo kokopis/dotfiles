@@ -1,5 +1,17 @@
 #! vi:ft=zsh
-source $(brew --prefix)/share/antigen/antigen.zsh
+if `where brew &>/dev/null`; then
+  brew install antigen &>/dev/null
+  BREWED_ANTIGEN=1
+  source $(brew --prefix)/share/antigen/antigen.zsh
+fi
+
+if [[ -z "${BREWED_ANTIGEN}" ]]; then
+  if [ ! -e "$HOME/.local/opt/antigen/antigen.zsh" ]; then
+    curl -L git.io/antigen > "$HOME/.local/opt/antigen/antigen.zsh"
+  fi
+  source $HOME/.local/opt/antigen/antigen.zsh
+fi
+
 antigen use oh-my-zsh
 
 antigen bundle pip

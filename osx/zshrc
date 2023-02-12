@@ -1,8 +1,6 @@
 #! vi:ft=zsh
 # load plugins
-if [ -e "$HOME/.antigen.conf.zsh" ] &>/dev/null; then
-  source $HOME/.antigen.conf.zsh
-fi
+source $HOME/.antigen.conf.zsh
 
 # completion for brew packages
 if type brew &>/dev/null; then
