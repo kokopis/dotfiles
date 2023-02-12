@@ -36,6 +36,7 @@ if test `uname` = "Linux"; then
 fi
 
 ln -sf $SCRIPT_ROOT/share/gitconfig $HOME/.gitconfig
+mkdir -p $HOME/.config/nvim
 ln -sf $SCRIPT_ROOT/share/init.vim $HOME/.config/nvim/
 ln -sf $SCRIPT_ROOT/share/antigen.conf.zsh $HOME/.antigen.conf.zsh
 
