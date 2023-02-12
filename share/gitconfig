@@ -1,5 +1,7 @@
 [user]
 	name = Kokoro Ibaragi
+	email = x3@kokop.is
+	signingKey = F166BB28
 [commit]
 	gpgSign = 1
 [init]

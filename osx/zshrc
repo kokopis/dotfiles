@@ -1,6 +1,6 @@
 #! vi:ft=zsh
 # load plugins
-if where antigen &>/dev/null; then
+if [ -e "$HOME/.antigen.conf.zsh" ] &>/dev/null; then
   source $HOME/.antigen.conf.zsh
 fi
 
