@@ -6,7 +6,7 @@ fi
 
 SCRIPT_ROOT="$HOME/Developer/github.com/kokopis/dotfiles"
 mkdir -p $SCRIPT_ROOT
-cp * $SCRIPT_ROOT
+cp -Rf * $SCRIPT_ROOT
 
 if test `uname` = "Darwin"; then
   ln -sf $SCRIPT_ROOT/osx/zshenv $HOME/.zshenv
