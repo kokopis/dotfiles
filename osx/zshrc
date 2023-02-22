@@ -24,8 +24,6 @@ promptinit
 zstyle ':completion:*' menu select
 setopt COMPLETE_ALIASES
 
-prompt walters
-
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
@@ -35,7 +33,9 @@ zle -N down-line-or-beginning-search
 
 if [ -f "$GOPATH/bin/powerline-go" ]; then
   function powerline_precmd() {
-    PS1="$($GOPATH/bin/powerline-go -error $? -jobs ${${(%):%j}:-0})"
+    print ""
+    MOD_LEFT="venv,user,host,ssh,cwd,direnv,perms,docker,aws,gcp,git,hg,jobs,newline,exit,root"
+    PS1="$($GOPATH/bin/powerline-go -modules $MOD_LEFT -error $? -jobs ${${(%):%j}:-0})"
 
     # Uncomment the following line to automatically clear errors after showing
     # them once. This not only clears the error for powerline-go, but also for
@@ -57,6 +57,8 @@ if [ -f "$GOPATH/bin/powerline-go" ]; then
   if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
     install_powerline_precmd
   fi
+else
+  prompt walters
 fi
 
 # aliases
