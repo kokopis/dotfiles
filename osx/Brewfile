@@ -1,3 +1,4 @@
+# vi:ft=ruby:
 tap "aws/tap"
 tap "dart-lang/dart"
 tap "hashicorp/tap"
@@ -106,6 +107,7 @@ cask "font-sf-compact"
 cask "font-sf-mono"
 cask "font-sf-mono-for-powerline"
 cask "font-sf-pro"
+cask "google-cloud-sdk"
 cask "gpg-suite"
 cask "macfuse"
 cask "powershell"
