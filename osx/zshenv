@@ -15,6 +15,7 @@ if where goenv &>/dev/null; then
   export GOENV_ROOT="$HOME/.goenv"
   export PATH=$GOENV_ROOT/bin:$PATH
 fi
+export GOPATH=$HOME/.go
 
 # Java
 if where jenv &>/dev/null; then
