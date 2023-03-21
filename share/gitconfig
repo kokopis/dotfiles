@@ -8,7 +8,7 @@
   defaultBranch = main
 [ghq]
   root = ~/Developer
-  vcs = git
+#  vcs = git
 [core]
   excludesfile = ~/.gitignore_global
 [pull]
