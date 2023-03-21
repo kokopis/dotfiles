@@ -168,6 +168,9 @@ nnoremap <C-L> :nohl<CR><C-L>
 "
 "------------------------------------------------------------
 
+" Preferences
+set noswapfile
+
 " GUI optimization
 set virtualedit=onemore
 nnoremap j gj
