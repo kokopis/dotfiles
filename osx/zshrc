@@ -36,7 +36,7 @@ zle -N down-line-or-beginning-search
 if [ -f "$GOPATH/bin/powerline-go" ]; then
   function powerline_precmd() {
     print ""
-    MOD_LEFT="venv,user,host,ssh,cwd,direnv,perms,docker,aws,gcp,git,hg,jobs,newline,exit,root"
+    MOD_LEFT="venv,user,host,ssh,cwd,direnv,perms,docker,aws,git,hg,jobs,newline,exit,root"
     PS1="$($GOPATH/bin/powerline-go -modules $MOD_LEFT -error $? -jobs ${${(%):%j}:-0})"
 
     # Uncomment the following line to automatically clear errors after showing
@@ -109,6 +109,19 @@ if where goenv &>/dev/null; then
   export PATH=$PATH:$GOPATH/bin
 fi
 
+if where jenv &>/dev/null; then
+  eval "$(jenv init -)"
+fi
+export PATH="$HOME/.jenv/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
 if where nodenv &>/dev/null; then
   # Load nodenv automatically by appending
   # the following to ~/.zshrc:
@@ -125,14 +138,6 @@ fi
 if where neofetch &>/dev/null; then
   neofetch
 fi
-
-# pnpm
-export PNPM_HOME="/Users/kokoroibaragi/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
