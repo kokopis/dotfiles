@@ -33,7 +33,9 @@ zle -N down-line-or-beginning-search
 [[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
 
-if [ -f "$GOPATH/bin/powerline-go" ]; then
+if type starship &>/dev/null; then
+  eval "$(starship init zsh)"
+elif [ -f "$GOPATH/bin/powerline-go" ]; then
   function powerline_precmd() {
     print ""
     MOD_LEFT="venv,user,host,ssh,cwd,direnv,perms,docker,aws,git,hg,jobs,newline,exit,root"
@@ -63,7 +65,12 @@ else
   prompt walters
 fi
 
-# aliases
+# load zoxide if exists
+if type zoxide &>/dev/null; then
+  eval "$(zoxide init zsh)"
+fi
+
+# handy aliases
 gcd() {
   if (type ghq&>/dev/null) && (type peco&>/dev/null); then
     if [ $# -eq 0 ]; then
@@ -84,6 +91,34 @@ xcode() {
     fi
   fi
 }
+
+if type exa &>/dev/null; then
+  alias ls='exa'
+fi
+
+if type bat &>/dev/null; then
+  alias cat='bat'
+fi
+
+if type hexyl &>/dev/null; then
+  alias od='hexyl'
+fi
+
+if type fd &>/dev/null; then
+  alias fd='find'
+fi
+
+if type procs &>/dev/null; then
+  alias ps='procs'
+fi
+
+if type rg &>/dev/null; then
+  alias grep='rg'
+fi
+
+if type btm &>/dev/null; then
+  alias top='btm -bTg'
+fi
 
 if where rbenv &>/dev/null; then
   # Load rbenv automatically by appending
