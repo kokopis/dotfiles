@@ -105,7 +105,7 @@ if type hexyl &>/dev/null; then
 fi
 
 if type fd &>/dev/null; then
-  alias fd='find'
+  alias find='fd'
 fi
 
 if type procs &>/dev/null; then
