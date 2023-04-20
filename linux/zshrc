@@ -73,3 +73,18 @@ fi
 if where neofetch &>/dev/null; then
   neofetch
 fi
+
+# If not running interactively, do not do anything
+[[ $- != *i* ]] && return
+# TMUX
+if where tmux &>/dev/null; then
+  # if no session is started, start a new session
+  if [ -z ${TMUX} ]; then
+    tmux -As main
+  fi
+
+  # when quitting tmux, try to attach
+  while test -z ${TMUX}; do
+    tmux attach || break
+  done
+fi
