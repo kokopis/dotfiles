@@ -12,7 +12,11 @@ promptinit
 zstyle ':completion:*' menu select
 setopt COMPLETE_ALIASES
 
-prompt walters
+if type starship &>/dev/null; then
+  eval "$(starship init zsh)"
+else
+  prompt walters
+fi
 
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
