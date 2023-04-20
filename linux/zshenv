@@ -27,7 +27,7 @@ export RUBY_YJIT_ENABLE=1
 # use nvim
 if where nvim &>/dev/null; then
   export EDITOR="$(which nvim)"
-  alias vim="$(which nvim)"
+  export VISUAL="$(which nvim)"
 else
   export EDITOR="$(which vim)"
 fi
