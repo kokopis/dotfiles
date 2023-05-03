@@ -44,4 +44,6 @@ if [ ! -e "$HOME/.config/zed" ]; then
   mkdir -p $HOME/.config/zed
 fi
 ln -sf $SCRIPT_ROOT/shared/zed-settings.json $HOME/.config/zed/config.json
+
+ln -sf $SCRIPT_ROOT/shared/tmux.conf $HOME/.tmux.conf
 exit
