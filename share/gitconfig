@@ -16,14 +16,15 @@
   rebase = true
 [alias]
   co = checkout
-  br = branch
+  br = checkout -b
   cm = commit -S -m
   st = status
+  sh = stash
   l = log --show-signature
   lc = log -1 HEAD
   r = reset --hard
   us = reset HEAD --
-  f = fetch --all
+  f = fetch --all --prune
   pl = pull --rebase
   pu = push
   d = diff
