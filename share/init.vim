@@ -213,6 +213,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
 Plug 'EdenEast/nightfox.nvim'
+Plug 'github/copilot.vim'
 call plug#end()
 
 autocmd StdinReadPre * let s:std_in=1
