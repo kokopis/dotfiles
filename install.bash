@@ -35,7 +35,10 @@ if test `uname` = "Linux"; then
   ln -sf $SCRIPT_ROOT/linux/000-fontstweak-ezfc.conf $HOME/.config/fontconfig/
 fi
 
+mkdir -p $HOME/.config/git
+ln -sf $SCRIPT_ROOT/share/gitignore_global $HOME/.config/git/ignore
 ln -sf $SCRIPT_ROOT/share/gitconfig $HOME/.gitconfig
+
 mkdir -p $HOME/.config/nvim
 ln -sf $SCRIPT_ROOT/share/init.vim $HOME/.config/nvim/
 ln -sf $SCRIPT_ROOT/share/antigen.conf.zsh $HOME/.antigen.conf.zsh
