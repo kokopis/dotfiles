@@ -92,12 +92,31 @@ xcode() {
   fi
 }
 
+# if file exists, source it
+if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local
+fi
+
+# if AWS_PROFILE_SWITCHER is not set, set it to default
+if [ -z "$AWS_PROFILE_SWITCHER" ]; then
+  export AWS_PROFILE_SWITCHER="$HOME/Developer/github.com/johnnyopao/awsp"
+fi
+
+aws() {
+  if (type aws &> /dev/null) && ([ -f ~/.aws/credentials ] || [ -f ~/.aws/config ]) && ([ -f $AWS_PROFILE_SWITCHER/run.sh ]); then
+  source $AWS_PROFILE_SWITCHER/run.sh
+  command aws $@
+else
+  command aws $@
+fi
+}
+
 if type exa &>/dev/null; then
   alias ls='exa'
 fi
 
 if type bat &>/dev/null; then
-  alias cat='bat'
+  alias cat='bat -p'
 fi
 
 if type hexyl &>/dev/null; then
