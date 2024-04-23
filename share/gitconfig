@@ -1,8 +1,6 @@
 # vi:ft=gitconfig:
 [user]
   name = Kokoro Ibaragi
-  email = x3@kokop.is
-  signingKey = 7BB0A9D8
 [commit]
   gpgSign = 1
 [init]
