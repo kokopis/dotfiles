@@ -20,6 +20,9 @@ if [ -f "$HB_CNF_HANDLER" ]; then
   source "$HB_CNF_HANDLER";
 fi
 
+# SSH Agent
+ssh-add --apple-load-keychain
+
 # Prompt
 autoload -Uz promptinit
 promptinit
@@ -111,8 +114,8 @@ else
 fi
 }
 
-if type exa &>/dev/null; then
-  alias ls='exa'
+if type eza &>/dev/null; then
+  alias ls='eza'
 fi
 
 if type bat &>/dev/null; then
@@ -186,6 +189,13 @@ fi
 if where direnv &>/dev/null; then
   # Load direnv
   eval "$(direnv hook zsh)"
+fi
+
+# https://github.com/orbstack/orbstack/blob/main/orb.plugin.zsh
+if (( $+commands[orbctl] )); then
+  eval "$(orbctl completion zsh)"
+  compdef _orb orbctl
+  compdef _orb orb
 fi
 
 # Greetings!
