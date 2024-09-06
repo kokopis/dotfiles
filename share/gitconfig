@@ -1,6 +1,6 @@
 # vi:ft=gitconfig:
 [user]
-  name = Kokoro Ibaragi
+	name = Kokoro Blinova
 [commit]
   gpgSign = 1
 [init]
@@ -9,7 +9,7 @@
   root = ~/Developer
 #  vcs = git
 [core]
-  excludesfile = ~/.gitignore_global
+	excludesfile = /Users/koko/Developer/github.com/kokopis/dotfiles/share/gitignore_global
 [pull]
   rebase = true
 [alias]
