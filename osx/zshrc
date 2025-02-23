@@ -1,6 +1,5 @@
 # Amazon Q pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
-#! vi:ft=zsh
 # load plugins
 source $HOME/.antigen.conf.zsh
 
@@ -12,6 +11,12 @@ fi
 brew completions link &>/dev/null
 
 # completion
+# load manually added completion
+if [[ ! -d "$HOME/.local/share/zsh/site-functions" ]]; then
+  mkdir -p $HOME/.local/share/zsh/site-functions
+fi
+export fpath=( $HOME/.local/share/zsh/site-functions "${fpath[@]}" )
+
 autoload -Uz compinit
 compinit -i
 
