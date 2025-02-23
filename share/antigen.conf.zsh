@@ -1,6 +1,8 @@
 #! vi:ft=zsh
 if `where brew &>/dev/null`; then
-  brew install antigen &>/dev/null
+  if [ ! -e `brew --prefix antigen` ]; then
+    brew install antigen
+  fi
   BREWED_ANTIGEN=1
   source $(brew --prefix)/share/antigen/antigen.zsh
 fi
