@@ -1,16 +1,11 @@
 #! vi:ft=zsh
-if `where brew &>/dev/null`; then
-  if [ ! -e `brew --prefix antigen` ]; then
-    brew install antigen
-  fi
-  BREWED_ANTIGEN=1
-  source $(brew --prefix)/share/antigen/antigen.zsh
-fi
-
-if [[ -z "${BREWED_ANTIGEN}" ]]; then
-  if [ ! -e "$HOME/.local/opt/antigen/antigen.zsh" ]; then
-    curl -L git.io/antigen > "$HOME/.local/opt/antigen/antigen.zsh"
-  fi
+if where brew &>/dev/null && [ -e $HOMEBREW_PREFIX/share/antigen/antigen.zsh ]; then
+  source $HOMEBREW_PREFIX/share/antigen/antigen.zsh
+elif where brew &>/dev/null; then
+  brew install antigen
+  source $HOMEBREW_PREFIX/share/antigen/antigen.zsh
+else
+  curl -L git.io/antigen > "$HOME/.local/opt/antigen/antigen.zsh"
   source $HOME/.local/opt/antigen/antigen.zsh
 fi
 
