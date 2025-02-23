@@ -161,11 +161,6 @@ if where mise &>/dev/null; then
 fi
 # mise end
 
-if where direnv &>/dev/null; then
-  # Load direnv
-  eval "$(direnv hook zsh)"
-fi
-
 # https://github.com/orbstack/orbstack/blob/main/orb.plugin.zsh
 if (( $+commands[orbctl] )); then
   eval "$(orbctl completion zsh)"
