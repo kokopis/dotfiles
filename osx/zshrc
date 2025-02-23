@@ -1,12 +1,19 @@
 # Amazon Q pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
-# load plugins
-source $HOME/.antigen.conf.zsh
+
+# Lazy load antigen
+function load_antigen {
+  source $HOME/.antigen.conf.zsh
+}
+zshaddhistory() {
+  emulate -L zsh
+  load_antigen
+  zshaddhistory() { true }
+}
 
 # completion for brew packages
 if type brew &>/dev/null; then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
-  FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
+  FPATH="$(brew --prefix)/share/zsh/site-functions:$(brew --prefix)/share/zsh-completions:$FPATH"
 fi
 brew completions link &>/dev/null
 

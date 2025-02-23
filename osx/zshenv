@@ -28,10 +28,12 @@ if [ -e "$(brew --prefix)" ]; then
 fi
 
 # other garbages
-export PATH=$HOME/.local/bin:$PATH
 if [ -e "$HOME/.local/opt/esp/xtensa-esp32-elf/bin" ]; then
   export PATH="$HOME/.local/opt/esp/xtensa-esp32-elf/bin:$PATH"
 fi
+
+# Consolidated PATH modifications
+export PATH="$HOME/.local/bin:$PATH"
 
 # Preferences
 # (just because we can) enable YJIT for when running Ruby 3.2.x or later
