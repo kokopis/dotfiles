@@ -5,7 +5,9 @@ elif where brew &>/dev/null; then
   brew install antigen
   source $HOMEBREW_PREFIX/share/antigen/antigen.zsh
 else
-  curl -L git.io/antigen > "$HOME/.local/opt/antigen/antigen.zsh"
+  if [ -e $HOME/.local/opt/antigen/antigen.zsh ]; then
+    curl -L git.io/antigen > "$HOME/.local/opt/antigen/antigen.zsh"
+  fi
   source $HOME/.local/opt/antigen/antigen.zsh
 fi
 
