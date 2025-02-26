@@ -6,7 +6,7 @@ fi
 
 SCRIPT_ROOT="$HOME/Developer/github.com/kokopis/dotfiles"
 mkdir -p $SCRIPT_ROOT
-cp -Rf * $SCRIPT_ROOT
+git clone https://github.com/kokopis/dotfiles.git $SCRIPT_ROOT
 
 if test `uname` = "Darwin"; then
   ln -sf $SCRIPT_ROOT/osx/zshenv $HOME/.zshenv
@@ -14,14 +14,14 @@ if test `uname` = "Darwin"; then
 
   ln -sf $SCRIPT_ROOT/osx/Brewfile $HOME/.Brewfile
   if where brew &>/dev/null; then
-    brew bundle --global
+    brew bundle --global -f -v
   else
     mkdir -p $HOME/.local/homebrew
     git clone https://github.com/Homebrew/brew $HOME/.local/homebrew
     eval `$HOME/.local/homebrew/bin/brew shellenv`
     brew update --force --quiet
     chmod -R go-w "$(brew --prefix)/share/zsh"
-    brew bundle --global
+    brew bundle --global -f -v
   fi
 fi
 
@@ -49,4 +49,9 @@ fi
 ln -sf $SCRIPT_ROOT/shared/zed-settings.json $HOME/.config/zed/config.json
 
 ln -sf $SCRIPT_ROOT/shared/tmux.conf $HOME/.tmux.conf
+
+if [ ! -e "$HOME/.config/macchina" ]; then
+  mkdir -p $HOME/.config/macchina
+fi
+ln -sf $SCRIPT_ROOT/shared/macchina.toml $HOME/.config/macchina.toml
 exit
