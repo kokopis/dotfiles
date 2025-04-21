@@ -1,6 +1,6 @@
 # vi:ft=gitconfig:
 [user]
-	name = Kokoro Blinova
+  name = Kokoro Blinova
 [commit]
   gpgSign = 1
 [init]
@@ -9,7 +9,7 @@
   root = ~/Developer
 #  vcs = git
 [core]
-	excludesfile = /Users/koko/Developer/github.com/kokopis/dotfiles/share/gitignore_global
+  excludesfile = ~/.config/git/ignore
 [pull]
   rebase = true
 [alias]
@@ -26,8 +26,3 @@
   pl = pull --rebase
   pu = push
   d = diff
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true

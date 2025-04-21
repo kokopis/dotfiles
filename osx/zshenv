@@ -16,6 +16,8 @@ fi
 
 # other garbages
 export PATH=$HOME/.local/bin:$PATH
+
+export GOPATH=$HOME/.local/opt/go
 #if [ -e "$HOME/.local/opt/esp/xtensa-esp32-elf/bin" ]; then
 #  export PATH="$HOME/.local/opt/esp/xtensa-esp32-elf/bin:$PATH"
 #fi
