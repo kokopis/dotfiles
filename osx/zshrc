@@ -53,7 +53,7 @@ if type zoxide &>/dev/null; then
 fi
 
 # handy aliases
-gcd() {
+p() {
   if (type ghq&>/dev/null) && (type peco&>/dev/null); then
     if [ $# -eq 0 ]; then
       cd $(ghq root)/$(ghq list | peco)
