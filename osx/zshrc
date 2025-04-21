@@ -41,6 +41,9 @@ zle -N down-line-or-beginning-search
 [[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
 
+# option-delete for word delete
+bindkey "^[[3;5~" backward-kill-word
+
 if type starship &>/dev/null; then
   eval "$(starship init zsh)"
 else
