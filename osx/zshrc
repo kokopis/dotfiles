@@ -145,6 +145,9 @@ if (( $+commands[orbctl] )); then
   compdef _orb orb
 fi
 
+# Added by Windsurf
+export PATH="/Users/kokoro.blinova/.codeium/windsurf/bin:$PATH"
+
 # Greetings!
 if where macchina &>/dev/null; then
   macchina
