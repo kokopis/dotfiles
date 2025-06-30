@@ -39,8 +39,7 @@ mkdir -p $HOME/.config/git
 ln -sf $SCRIPT_ROOT/share/gitignore_global $HOME/.config/git/ignore
 ln -sf $SCRIPT_ROOT/share/gitconfig $HOME/.gitconfig
 
-mkdir -p $HOME/.config/nvim
-ln -sf $SCRIPT_ROOT/share/init.vim $HOME/.config/nvim/
+ln -sf $SCRIPT_ROOT/share/nvim $HOME/.config/nvim
 ln -sf $SCRIPT_ROOT/share/antigen.conf.zsh $HOME/.antigen.conf.zsh
 
 if [ ! -e "$HOME/.config/zed" ]; then
