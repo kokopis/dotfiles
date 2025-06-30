@@ -9,7 +9,7 @@
   root = ~/Developer
 #  vcs = git
 [core]
-  excludesfile = ~/.config/git/ignore
+  excludesfile = ~/Developer/github.com/kokopis/dotfiles/share/gitignore_global
 [pull]
   rebase = true
 [alias]
