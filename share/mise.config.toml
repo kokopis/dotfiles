@@ -1,0 +1,7 @@
+[tools]
+go = "latest"
+java = "corretto-21"
+node = "latest"
+python = ["2.7", "3"]
+ruby = "3"
+rust = "latest"

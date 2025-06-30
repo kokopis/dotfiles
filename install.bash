@@ -42,6 +42,15 @@ ln -sf $SCRIPT_ROOT/share/gitconfig $HOME/.gitconfig
 ln -sf $SCRIPT_ROOT/share/nvim $HOME/.config/nvim
 ln -sf $SCRIPT_ROOT/share/antigen.conf.zsh $HOME/.antigen.conf.zsh
 
+if where mise &>/dev/null; then
+  ln -sf $SCRIPT_ROOT/share/mise.config.toml $HOME/.config/mise.toml
+  mise up
+else
+  curl https://mise.run | sh
+  ln -sf $SCRIPT_ROOT/share/mise.config.toml $HOME/.config/mise.toml
+  echo 'TODO: finish installing mise and run `mise run` after the process'
+fi
+
 if [ ! -e "$HOME/.config/zed" ]; then
   mkdir -p $HOME/.config/zed
 fi
