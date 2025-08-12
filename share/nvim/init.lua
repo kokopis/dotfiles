@@ -25,3 +25,5 @@ end
 
 require "lazy_setup"
 require "polish"
+
+vim.keymap.set('n', '<leader>cc', '<cmd>ClaudeCode<CR>', { desc = 'Toggle Claude Code' })
