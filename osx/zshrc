@@ -153,5 +153,9 @@ if where macchina &>/dev/null; then
   macchina
 fi
 
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/koko/.lmstudio/bin"
+# End of LM Studio CLI section
+
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
