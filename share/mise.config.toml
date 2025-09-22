@@ -1,6 +1,6 @@
 [tools]
 go = "1.24"
-java = "corretto-21"
+java = "corretto-25"
 node = "latest"
 python = ["3"]
 ruby = "3"
