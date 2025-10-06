@@ -26,8 +26,7 @@ export GOPATH=$HOME/.local/opt/go
 # (just because we can) enable YJIT for when running Ruby 3.2.x or later
 export RUBY_YJIT_ENABLE=1
 
-# use nvim
-export EDITOR="$(which vi)"
+export EDITOR="$(which nvim)"
 export VISUAL="$(which vi)"
 
 # English please.
