@@ -7,8 +7,9 @@ source $HOME/.antigen.conf.zsh
 if type brew &>/dev/null; then
   FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:$FPATH"
   FPATH="$HOMEBREW_PREFIX/share/zsh-completions:$FPATH"
+  brew completions link &>/dev/null
+  eval "$(brew command-not-found-init)"
 fi
-brew completions link &>/dev/null
 
 # completion
 # load manually added completion
@@ -19,11 +20,6 @@ export fpath=( $HOME/.local/share/zsh/site-functions "${fpath[@]}" )
 
 autoload -Uz compinit
 compinit -i
-
-HB_CNF_HANDLER="$HOMEBREW_REPOSITORY/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
-if [ -f "$HB_CNF_HANDLER" ]; then
-  source "$HB_CNF_HANDLER";
-fi
 
 # SSH Agent
 ssh-add --apple-load-keychain
@@ -106,10 +102,6 @@ fi
 
 if type hexyl &>/dev/null; then
   alias od='hexyl'
-fi
-
-if type fd &>/dev/null; then
-  alias find='fd'
 fi
 
 if type procs &>/dev/null; then
