@@ -39,6 +39,8 @@ zle -N down-line-or-beginning-search
 
 # option-delete for word delete
 bindkey "^[[3;5~" backward-kill-word
+bindkey "^[[1;5C" forward-word  
+bindkey "^[[1;5D" backward-word
 
 if type starship &>/dev/null; then
   eval "$(starship init zsh)"
