@@ -227,3 +227,4 @@ http-client.private.env.json
 .idea/ApifoxUploaderProjectSetting.xml
 
 **/.claude/settings.local.json
+.DS_Store

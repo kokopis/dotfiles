@@ -31,3 +31,4 @@ export VISUAL="$(which vi)"
 
 # English please.
 export LANG=en_US.UTF-8
+export THEOS=~/.local/opt/theos

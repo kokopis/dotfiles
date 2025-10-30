@@ -51,6 +51,9 @@ else
   echo 'TODO: finish installing mise and run `mise run` after the process'
 fi
 
+mkdir -p $HOME/.local/opt/theos
+env THEOS=$HOME/.local/opt/theos bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
+
 if [ ! -e "$HOME/.config/zed" ]; then
   mkdir -p $HOME/.config/zed
 fi
