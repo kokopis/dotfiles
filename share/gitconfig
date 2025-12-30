@@ -1,7 +1,7 @@
 # vi:ft=gitconfig:
 [user]
   name = Kokoro Blinova
-	email = kokoro.blinova@infobahn.co.jp
+	email = x3@kokop.is
 [commit]
   gpgSign = 1
 [init]
