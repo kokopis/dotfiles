@@ -1,3 +1,7 @@
+**ARCHIVED: these code were moved to my tangled.**
+
+---
+
 # kokopis/dotfiles
 **WARNING: FILES NOT WELL TESTED. CHECK CODES AND CONFIGURATIONS YOURSELF FIRST.**  
 
