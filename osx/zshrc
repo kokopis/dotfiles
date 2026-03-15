@@ -1,7 +1,7 @@
 # Kiro CLI pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
 # load plugins
-source $HOME/.antigen.conf.zsh
+source $HOME/.zinit.conf.zsh
 
 # completion for brew packages
 if type brew &>/dev/null; then
@@ -20,9 +20,6 @@ export fpath=( $HOME/.local/share/zsh/site-functions "${fpath[@]}" )
 
 autoload -Uz compinit
 compinit -i
-
-# SSH Agent
-ssh-add --apple-load-keychain
 
 # Prompt
 autoload -Uz promptinit

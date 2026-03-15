@@ -1,0 +1,3 @@
+# vi:ft=zsh:
+# Load SSH keys from macOS keychain (once per login session)
+ssh-add --apple-load-keychain

@@ -11,6 +11,7 @@ git clone https://github.com/kokopis/dotfiles.git $SCRIPT_ROOT
 if test `uname` = "Darwin"; then
   ln -sf $SCRIPT_ROOT/osx/zshenv $HOME/.zshenv
   ln -sf $SCRIPT_ROOT/osx/zshrc $HOME/.zshrc
+  ln -sf $SCRIPT_ROOT/osx/zprofile $HOME/.zprofile
 
   ln -sf $SCRIPT_ROOT/osx/Brewfile $HOME/.Brewfile
   if where brew &>/dev/null; then
@@ -40,7 +41,7 @@ ln -sf $SCRIPT_ROOT/share/gitignore_global $HOME/.config/git/ignore
 ln -sf $SCRIPT_ROOT/share/gitconfig $HOME/.gitconfig
 
 ln -sf $SCRIPT_ROOT/share/nvim $HOME/.config/nvim
-ln -sf $SCRIPT_ROOT/share/antigen.conf.zsh $HOME/.antigen.conf.zsh
+ln -sf $SCRIPT_ROOT/share/zinit.conf.zsh $HOME/.zinit.conf.zsh
 
 if where mise &>/dev/null; then
   ln -sf $SCRIPT_ROOT/share/mise.config.toml $HOME/.config/mise.toml
